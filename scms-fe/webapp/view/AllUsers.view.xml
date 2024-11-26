@@ -1,0 +1,184 @@
+<mvc:View
+    controllerName="scmsfe.controller.AllUsers"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants"
+    core:require="{
+		formatter: 'scmsfe/model/formatter'
+	}"
+>
+    <f:DynamicPage id="_IDGenDynamicPage">
+        <f:header>
+            <f:DynamicPageHeader id="_IDGenDynamicPageHeader">
+                <f:content>
+                    <fb:FilterBar
+                        id="filterbar"
+                        useToolbar="false"
+                        showFilterConfiguration="false"
+                        showClearOnFB="true"
+                        showGoOnFB="false"
+                        search=".onFilter"
+                        clear=".onClearFilter"
+                    >
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem id="_IDGenFilterGroupItem"
+                                name="search"
+                                label="{i18n>search}"
+                                groupName="Group1"
+                                visibleInFilterBar="true"
+                            >
+                                <fb:control>
+                                    <Input
+                                        placeholder="{i18n>searchPlaceholder}"
+                                        class="searchBar"
+                                        id="search"
+                                        liveChange="onSearch"
+                                    />
+                                </fb:control>
+                            </fb:FilterGroupItem>
+
+                            <fb:FilterGroupItem
+                                name="roles"
+                                id="roles"
+                                label="{i18n>roles}"
+                                groupName="Group1"
+                                visibleInFilterBar="true"
+                            >
+                                <fb:control>
+                                    <MultiComboBox id="_IDGenMultiComboBox"
+                                        name="{i18n>roles}"
+                                        items="{path: 'userRoleModel>/roles'}"
+                                        selectionChange=".onFilter"
+                                    >
+                                        <core:Item id="_IDGenItem1"
+                                            key="{userRoleModel>roleName}"
+                                            text="{userRoleModel>roleName}"
+                                        />
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table
+                id="allUsersTable"
+                inset="false"
+                sticky="ColumnHeaders,HeaderToolbar"
+                class="table"
+                items="{viewModel>/users}"
+                growing="true"
+                growingScrollToLoad="true"
+                growingThreshold="20"
+                busy="{viewModel>/busy}"
+                busyIndicatorDelay="{config>delay}"
+            >
+                <headerToolbar>
+                    <Toolbar id="_IDGenToolbar" class="sapUiSmallMarginBottom">
+                        <Title id="_IDGenTitle" text="{i18n>users}" />
+                        <ToolbarSpacer id="_IDGenToolbarSpacer" />
+                        <Button
+                            id="createUserButton"
+                            text="{i18n>create}"
+                            type="Emphasized"
+                            press="onOpenCreateUserDialog"
+                        />
+                        <Button
+                            id="deleteButton"
+                            text="{i18n>delete}"
+                            press=".onBatchDelete"
+                        />
+                        <Button
+                            icon="sap-icon://sort"
+                            id="sortParticipant"
+                            press=".onOpenSortDialog"
+                        />
+                        <core:Fragment
+                            fragmentName="scmsfe.view.fragments.UserSorter"
+                            type="XML"
+                        />
+                        <core:Fragment
+                            fragmentName="scmsfe.view.fragments.CreateUserDialog"
+                            type="XML"
+                        />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenColumn"
+                        width="5%"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <CheckBox
+                            select=".onSelectAll"
+                            id="headerCheck"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn1"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel13" text="{i18n>name}" />
+                    </Column>
+                    <Column id="_IDGenColumn2"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel14" text="{i18n>email}" />
+                    </Column>
+                    <Column id="_IDGenColumn3"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel15" text="{i18n>number}" />
+                    </Column>
+                    <Column id="_IDGenColumn4"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel16" text="{i18n>role}" />
+                    </Column>
+                    <Column id="_IDGenColumn5"
+                        width="10%"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    />
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem" vAlign="Middle">
+                        <cells>
+                            <CheckBox
+                                id="tableCheck"
+                               
+                                select=".onSelectChange"
+                            />
+                            <Text id="_IDGenText1" text="{viewModel>firstName} {viewModel>lastName}" />
+                            <Text id="_IDGenText2" text="{viewModel>email}" />
+                            <Text id="_IDGenText3" text="{viewModel>phoneNumber}" />
+                            <Text id="_IDGenText4" text="{viewModel>role}" />
+                            <HBox id="_IDGenHBox3">
+                                <Button
+                                    id="editIcon"
+                                    icon="sap-icon://edit"
+                                    class="sapUiTinyMarginEnd"
+                                    press=".onEditPress"
+                                />
+                                <Button id="_IDGenButton3"
+                                    icon="sap-icon://delete"
+                                    class="mainIcon"
+                                    press=".onDelete"
+                                />
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

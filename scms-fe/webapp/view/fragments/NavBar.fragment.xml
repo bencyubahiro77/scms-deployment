@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.f"
+    xmlns:m="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    height="100%"
+>
+    <ShellBar id="_IDGenShellBar"
+        title="SCMS"
+        homeIcon="images/467_sap.png"
+        class="customShellBar"
+    >
+        <menu>
+            <m:Menu id="_IDGenMenu">
+                <m:MenuItem id="_IDGenMenuItem1"
+                    text="{i18n>dashboard}"
+                    icon="sap-icon://home"
+                    press="onDashboard"
+                />
+            </m:Menu>
+        </menu>
+        <profile>
+            <m:Avatar id="_IDGenAvatar"
+                initials="{= ${profileModel>/firstName}.substring(0,1) + ${profileModel>/lastName}.substring(0,1) }"
+                press="onAvatarPress"
+            />
+        </profile>
+    </ShellBar>
+</core:FragmentDefinition>

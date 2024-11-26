@@ -1,0 +1,103 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="updateUserDialog"
+        title="{i18n>updateUser}"
+        class="createUserDialog"
+    >
+        <content>
+            <VBox id="_IDGenVBox3" class="createUser">
+                <Label id="_IDGenLabel7"
+                    text="{i18n>firstName}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input
+                    id="editFirstNameInput"
+                    placeholder="{i18n>enterFirstName}"
+                   
+                />
+                <Label id="_IDGenLabel8"
+                    text="{i18n>lastName}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input
+                    id="editLastNameInput"
+                    placeholder="{i18n>enterLastName}"
+            
+                />
+
+                <Label id="_IDGenLabel9"
+                    text="{i18n>number}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input
+                    id="editPhoneInput"
+                    placeholder="{i18n>enterPhone}"
+        
+                />
+
+                <Label id="_IDGenLabel10"
+                    text="{i18n>address}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input
+                    id="editAddressInput"
+                
+                    placeholder="{i18n>enterEmail}"
+                    
+                />
+
+                <Label id="_IDGenLabel11"
+                    text="{i18n>dateOfBirth}"
+                  design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <DatePicker
+                    id="editDateInput"
+                    placeholder="{i18n>datePlaceholder}"
+                    required="true"
+                />
+
+                <Label id="_IDGenLabel12"
+                    text="{i18n>gender}"
+                   design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Select
+                    class="inputs"
+                    width="100%"
+                    id="genderSelect"
+                >
+                    <core:ListItem id="_IDGenListItem"
+                        key="{i18n>male}"
+                        text="{i18n>male}"
+                    />
+                    <core:ListItem id="_IDGenListItem1"
+                        key="{i18n>female}"
+                        text="{i18n>female}"
+                    />
+                </Select>
+            </VBox>
+        </content>
+        <beginButton>
+            <Button
+                id="editUserBtn"
+                text="{i18n>editbtn}"
+                type="Emphasized"
+                press="onSaveEditedProfile"
+            />
+        </beginButton>
+        <endButton>
+            <Button id="_IDGenButton2"
+                text="{i18n>cancel}"
+                press="onCloseUpdateProfileDialog"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

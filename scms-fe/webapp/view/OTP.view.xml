@@ -1,0 +1,101 @@
+<mvc:View
+    controllerName="scmsfe.controller.OTP"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+>
+    <VBox id="_IDGenVBox23"
+        class="sapUiContentPadding loginCard"
+        alignItems="Center"
+        justifyContent="Center"
+    >
+        <Panel id="_IDGenPanel4">
+            <VBox id="_IDGenVBox24">
+                <HBox id="_IDGenHBox10"
+                    justifyContent="Center"
+                    alignItems="Center"
+                >
+                    <Image id="_IDGenImage6"
+                        src="images/467_sap.png"
+                        alt="SCMS Project Logo"
+                        width="150px"
+                    />
+                </HBox>
+                <VBox id="_IDGenVBox25"
+                    alignItems="Center"
+                    justifyContent="Center"
+                >    
+                    <Label id="_IDGenLabel29"  text="{i18n>codeHeader}" design="Bold" />
+                    <Text id="_IDGenText11"
+                        text="{otpModel>/codeSent}"
+                        textAlign="Center"
+                    />
+                </VBox>
+
+                <HBox
+                    alignItems="Center"
+                    justifyContent="Center"
+                    id="otpContainer"
+                    class="otpContainer"
+                >
+                    <Input id="_IDGenInput"
+                        width="3rem"
+                        maxLength="1"
+                        liveChange="onOtpChange"
+                        textAlign="Center"
+                        class="otpInput"
+                        type="Number"
+                    />
+                    <Input id="_IDGenInput1"
+                        width="3rem"
+                        maxLength="1"
+                        liveChange="onOtpChange"
+                        textAlign="Center"
+                        class="otpInput"
+                        type="Number"
+                    />
+                    <Input id="_IDGenInput2"
+                        width="3rem"
+                        maxLength="1"
+                        liveChange="onOtpChange"
+                        textAlign="Center"
+                        class="otpInput"
+                        type="Number"
+                    />
+                    <Input id="_IDGenInput3"
+                        width="3rem"
+                        maxLength="1"
+                        liveChange="onOtpChange"
+                        textAlign="Center"
+                        type="Number"
+                    />
+                </HBox>
+
+                <HBox id="_IDGenHBox11" class="sapUiSmallMarginTop">
+                    <Button id="_IDGenButton6"
+                        text="{i18n>submit}"
+                        type="Emphasized"
+                        class="btn"
+                        press=".onOtpSubmit"
+                    />
+                </HBox>
+                <HBox id="_IDGenHBox12"
+                    justifyContent="Center"
+                    alignItems="Center"
+                    class="sapUiSmallMarginTop"
+                >
+                    <Image id="_IDGenImage7"
+                        src="images/467_sap.png"
+                        alt="SAP Logo"
+                        width="100px"
+                    />
+                    <Text id="_IDGenText12"
+                        text="{i18n>powered}"
+                        class="sapUiTinyMarginBegin"
+                    />
+                </HBox>
+            </VBox>
+        </Panel>
+    </VBox>
+</mvc:View>

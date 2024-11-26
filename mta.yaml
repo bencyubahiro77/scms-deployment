@@ -1,0 +1,92 @@
+_schema-version: "3.2"
+ID: SCMS-FE
+version: 0.0.1
+modules:
+- name: SCMS-FE-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: SCMS-FE-destination-service
+    parameters:
+      content-target: true
+  - name: SCMS-FE_html_repo_host
+    parameters:
+      service-key:
+        name: SCMS-FE_html_repo_host-key
+  - name: uaa_SCMS-FE
+    parameters:
+      service-key:
+        name: uaa_SCMS-FE-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: SCMS_FE_SCMS_FE_html_repo_host
+          ServiceInstanceName: SCMS-FE-html5-app-host-service
+          ServiceKeyName: SCMS-FE_html_repo_host-key
+          sap.cloud.service: SCMS-FE
+        - Authentication: OAuth2UserTokenExchange
+          Name: SCMS_FE_uaa_SCMS_FE
+          ServiceInstanceName: SCMS-FE-xsuaa-service
+          ServiceKeyName: uaa_SCMS-FE-key
+          sap.cloud.service: SCMS-FE
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: SCMS-FE-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: SCMS-FE_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - scmsfe.zip
+      name: scmsfe
+      target-path: resources/
+- name: scmsfe
+  type: html5
+  path: scms-fe
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: SCMS-FE-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: SCMS-FE-destination-service
+    service-plan: lite
+- name: SCMS-FE_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: SCMS-FE-html5-app-host-service
+    service-plan: app-host
+- name: uaa_SCMS-FE
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: SCMS-FE-xsuaa-service
+    service-plan: application
+parameters:
+  deploy_mode: html5-repo

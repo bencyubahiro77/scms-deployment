@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+        <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="UserService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotation Term="Core.Links">
+                <Collection>
+                    <Record>
+                        <PropertyValue Property="rel" String="author"/>
+                        <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+                    </Record>
+                </Collection>
+            </Annotation>
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Users" EntityType="UserService.Users">
+                    <NavigationPropertyBinding Path="role" Target="Roles"/>
+                </EntitySet>
+                <EntitySet Name="Roles" EntityType="UserService.Roles">
+                    <NavigationPropertyBinding Path="users" Target="Users"/>
+                </EntitySet>
+                <ActionImport Name="login" Action="UserService.login"/>
+                <ActionImport Name="createUser" Action="UserService.createUser"/>
+                <FunctionImport Name="viewUsers" Function="UserService.viewUsers"/>
+                <FunctionImport Name="viewProfile" Function="UserService.viewProfile"/>
+                <ActionImport Name="updateUser" Action="UserService.updateUser" EntitySet="Users"/>
+                <ActionImport Name="updateProfile" Action="UserService.updateProfile" EntitySet="Users"/>
+                <ActionImport Name="deleteUser" Action="UserService.deleteUser"/>
+                <ActionImport Name="requestPasswordReset" Action="UserService.requestPasswordReset"/>
+                <ActionImport Name="verifyOtp" Action="UserService.verifyOtp"/>
+                <ActionImport Name="resetPassword" Action="UserService.resetPassword"/>
+            </EntityContainer>
+            <EntityType Name="Users">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="username" Type="Edm.String"/>
+                <Property Name="password" Type="Edm.String"/>
+                <Property Name="phoneNumber" Type="Edm.String"/>
+                <Property Name="firstName" Type="Edm.String"/>
+                <Property Name="lastName" Type="Edm.String"/>
+                <Property Name="email" Type="Edm.String"/>
+                <NavigationProperty Name="role" Type="UserService.Roles" Partner="users">
+                    <ReferentialConstraint Property="role_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="role_ID" Type="Edm.Guid"/>
+                <Property Name="lastOtpSent" Type="Edm.DateTimeOffset"/>
+                <Property Name="dateOfBirth" Type="Edm.Date"/>
+                <Property Name="gender" Type="Edm.String"/>
+                <Property Name="address" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Roles">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="roleName" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+                <NavigationProperty Name="users" Type="Collection(UserService.Users)" Partner="role"/>
+            </EntityType>
+            <Action Name="login" IsBound="false">
+                <Parameter Name="email" Type="Edm.String"/>
+                <Parameter Name="password" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Action>
+            <Action Name="createUser" IsBound="false">
+                <Parameter Name="firstName" Type="Edm.String"/>
+                <Parameter Name="lastName" Type="Edm.String"/>
+                <Parameter Name="email" Type="Edm.String"/>
+                <Parameter Name="phoneNumber" Type="Edm.String"/>
+                <Parameter Name="role" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Action>
+            <Function Name="viewUsers" IsBound="false" IsComposable="false">
+                <ReturnType Type="Collection(Edm.String)" Nullable="true"/>
+            </Function>
+            <Function Name="viewProfile" IsBound="false" IsComposable="false">
+                <ReturnType Type="Collection(Edm.String)" Nullable="true"/>
+            </Function>
+            <Action Name="updateUser" IsBound="false">
+                <Parameter Name="ID" Type="Edm.String"/>
+                <Parameter Name="firstName" Type="Edm.String"/>
+                <Parameter Name="lastName" Type="Edm.String"/>
+                <Parameter Name="email" Type="Edm.String"/>
+                <Parameter Name="phoneNumber" Type="Edm.String"/>
+                <Parameter Name="role_ID" Type="Edm.String"/>
+                <Parameter Name="password" Type="Edm.Boolean"/>
+                <Parameter Name="gender" Type="Edm.String"/>
+                <Parameter Name="dateOfBirth" Type="Edm.Date"/>
+                <Parameter Name="address" Type="Edm.String"/>
+                <ReturnType Type="UserService.Users"/>
+            </Action>
+            <Action Name="updateProfile" IsBound="false">
+                <Parameter Name="ID" Type="Edm.String"/>
+                <Parameter Name="firstName" Type="Edm.String"/>
+                <Parameter Name="lastName" Type="Edm.String"/>
+                <Parameter Name="email" Type="Edm.String"/>
+                <Parameter Name="phoneNumber" Type="Edm.String"/>
+                <Parameter Name="role_ID" Type="Edm.String"/>
+                <Parameter Name="gender" Type="Edm.String"/>
+                <Parameter Name="dateOfBirth" Type="Edm.Date"/>
+                <Parameter Name="address" Type="Edm.String"/>
+                <ReturnType Type="UserService.Users"/>
+            </Action>
+            <Action Name="deleteUser" IsBound="false">
+                <Parameter Name="ID" Type="Collection(Edm.String)" Nullable="true"/>
+                <ReturnType Type="Edm.String"/>
+            </Action>
+            <Action Name="requestPasswordReset" IsBound="false">
+                <Parameter Name="email" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Action>
+            <Action Name="verifyOtp" IsBound="false">
+                <Parameter Name="email" Type="Edm.String"/>
+                <Parameter Name="otp" Type="Edm.String"/>
+                <Parameter Name="token" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Action>
+            <Action Name="resetPassword" IsBound="false">
+                <Parameter Name="email" Type="Edm.String"/>
+                <Parameter Name="password" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Action>
+            <Annotations Target="UserService.Users/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="UserService.Users/username">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="UserService.Users/password">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="UserService.Users/phoneNumber">
+                <Annotation Term="Validation.Pattern" String="^\\+?[1-9]\\d{1,14}$"/>
+            </Annotations>
+            <Annotations Target="UserService.Users/email">
+                <Annotation Term="Validation.Pattern" String="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="UserService.Roles/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="UserService.Roles/roleName">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

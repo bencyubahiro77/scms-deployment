@@ -1,0 +1,45 @@
+<mvc:View controllerName="scmsfe.controller.Login"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    core:require="{
+      formatter: 'scmsfe/model/formatter'
+    }"
+    >
+   <VBox id="_IDGenVBox1" class="sapUiContentPadding loginCard" alignItems="Center" justifyContent="Center">
+
+        <Panel id="_IDGenPanel">
+            <VBox id="_IDGenVBox2">
+			    <HBox id="_IDGenHBox" justifyContent="Center" alignItems="Center">
+				 <Image id="_IDGenImage" src="images/467_sap.png" alt="SCMS Project Logo" width="150px" />
+				</HBox>
+
+                <Label id="_IDGenLabel" text="{i18n>email}" design="Bold"/>
+                <Input placeholder="{i18n>enterEmail}" id="emailInput" type="Email" change="validateEmail"  />
+                           
+                <Label id="_IDGenLabel1" text="{i18n>password}" class="sapUiSmallMarginTop" design="Bold" />
+                <Input 
+				    type="Password" 
+				    placeholder="{i18n>enterPassword}" 
+				    id="passwordInput" 
+				    showValueHelp="true"
+					class="passwordInput"
+                    valueHelpIconSrc="sap-icon://show"
+                    valueHelpRequest="onTogglePasswordVisibility"
+				/>
+				
+				<Link id="_IDGenLink" text="{i18n>forgotPassword}" class="sapUiSmallMarginTop" press=".onForgotPasswordPress"/>
+				
+				<HBox id="_IDGenHBox1" class="sapUiSmallMarginTop">
+				    <Button text="{i18n>signIn}" type="Emphasized" id="loginBtn" class="btn" press=".onLoginPress" />
+				</HBox>
+            </VBox>
+
+			<HBox id="_IDGenHBox2" justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop">
+				<Image id="_IDGenImage1" src="images/467_sap.png" alt="SAP Logo" width="100px" />
+				<Text id="_IDGenText" text="{i18n>powered}" class="sapUiTinyMarginBegin" />
+		   </HBox>
+        </Panel>
+    </VBox>
+</mvc:View>

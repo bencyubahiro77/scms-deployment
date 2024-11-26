@@ -1,0 +1,118 @@
+<mvc:View
+    controllerName="scmsfe.controller.UserProfile"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:m="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="userProfile"
+        showNavButton="true"
+        navButtonPress=".onNavBackUserDashboard"
+        title="{i18n>userTitle}"
+    >
+        <VBox id="_IDGenVBox6"
+            class="sapUiContentPadding ProfileCard"
+            alignItems="Center"
+            justifyContent="Center"
+            width="100%"
+        >
+            <Panel id="_IDGenPanel1"
+                class="sapUiMediumMarginTop sapUiTinyMarginBottom sapUiContentAlignment"
+                width="100%"
+            >
+                <VBox id="_IDGenVBox7"
+                    alignItems="Center"
+                    justifyContent="Center"
+                    width="100%"
+                >
+                    <m:Avatar id="_IDGenAvatar1"
+                        class="sapUiSmallMargin"
+                        initials="{= ${profileModel>/firstName}.substring(0,1) + ${profileModel>/lastName}.substring(0,1) }"
+                        displaySize="XL"
+                    />
+
+                    <Label id="_IDGenLabel17"
+                        text="{profileModel>/firstName} {profileModel>/lastName}"
+                        class="sapUiSmallMarginBottom"
+                        design="Bold"
+                    />
+
+                    <Link
+                        text="{i18n>editProfile}"
+                        id="editUserProfile"
+                        class="sapUiSmallMarginBottom"
+                        press=".onUpdateProfileDialog"
+                    />
+                    <core:Fragment
+                        fragmentName="scmsfe.view.fragments.EditUserDialog"
+                        type="XML"
+                    />
+                </VBox>
+
+                <HBox id="_IDGenHBox4"
+                    width="100%"
+                    class="userDetails"
+                >
+                    <VBox id="_IDGenVBox8">
+                        <VBox id="_IDGenVBox9" class="formItem">
+                            <Label id="_IDGenLabel19" text="{i18n>firstName}" />
+                            <Text id="firstName" text="{profileModel>/firstName}" />
+                        </VBox>
+
+                        <VBox id="_IDGenVBox10" class="formItem">
+                            <Label id="_IDGenLabel20" text="{i18n>lastName}" />
+                            <Text id="lastName" text="{profileModel>/lastName}" />
+                        </VBox>
+
+                        <VBox id="_IDGenVBox11" class="formItem">
+                            <Label id="_IDGenLabel21" text="{i18n>number}" />
+                            <Text id="phoneNumber" text="{profileModel>/phoneNumber}" />
+                        </VBox>
+
+                        <VBox id="_IDGenVBox12" class="formItem">
+                            <Label id="_IDGenLabel22" text="{i18n>email}" />
+                            <Text id="email" text="{profileModel>/email}" />
+                        </VBox>
+                    </VBox>
+
+                    <VBox id="_IDGenVBox13">
+                        <VBox id="_IDGenVBox14" class="formItem">
+                            <Label id="_IDGenLabel23" text="{i18n>role}" />
+                            <Text id="_IDGenText5" text="{profileModel>/role}" />
+                        </VBox>
+
+                        <VBox id="_IDGenVBox15" class="formItem">
+                            <Label id="_IDGenLabel24" text="{i18n>gender}" />
+                            <Text id="gender" text="{= ${profileModel>/gender} ? ${profileModel>/gender} : '-'}" />
+                        </VBox>
+
+                        <VBox id="_IDGenVBox16" class="formItem">
+                            <Label id="_IDGenLabel25" text="{i18n>dateOfBirth}" />
+                            <Text id="dateOfBirth" text="{= ${profileModel>/dateOfBirth} ? ${profileModel>/dateOfBirth} : '-'}" />
+                        </VBox>
+
+                        <VBox id="_IDGenVBox17" class="formItem">
+                            <Label id="_IDGenLabel26" text="{i18n>address}" />
+                            <Text id="address" text="{= ${profileModel>/address} ? ${profileModel>/address} : '-'}" />
+                        </VBox>
+                    </VBox>
+                </HBox>
+                <HBox id="_IDGenHBox5"
+                    justifyContent="Center"
+                    alignItems="Center"
+                    width="100%"
+                    class="sapUiSmallMarginBottom sapUiSmallMarginTop"
+                >
+                    <Link id="_IDGenLink3"
+                        icon="sap-icon://log"
+                        text="{i18n>logout}"
+                        press="onLogoutPress"
+                        class="customRedLink"
+                    />
+                </HBox>
+            </Panel>
+        </VBox>
+    </Page>
+</mvc:View>

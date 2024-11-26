@@ -1,0 +1,90 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="createUserDialog"
+        title="{i18n>createUser}"
+        class="createUserDialog"
+    >
+        <content>
+            <VBox id="_IDGenVBox" class="createUser">
+                <Label id="_IDGenLabel2"
+                    text="{i18n>firstName}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input
+                    id="createFirstNameInput"
+                    placeholder="{i18n>enterFirstName}"
+                    value="{userModel>/firstName}"
+                />
+                <Label id="_IDGenLabel3"
+                    text="{i18n>lastName}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input
+                    id="createLastNameInput"
+                    placeholder="{i18n>enterLastName}"
+                    value="{userModel>/lastName}"
+                />
+                <Label id="_IDGenLabel4"
+                    text="{i18n>email}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input
+                    id="createEmailInput"
+                    type="Email"
+                    placeholder="{i18n>enterEmail}"
+                    value="{userModel>/email}"
+                />
+
+                <Label id="_IDGenLabel5"
+                    text="{i18n>number}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input
+                    id="createPhoneInput"
+                    type="Number"
+                    placeholder="{i18n>enterPhone}"
+                    value="{userModel>/phoneNumber}"
+                />
+
+                <Label id="_IDGenLabel6"
+                    text="{i18n>role}"
+                    design="Bold"
+                    class="sapUiSmallMarginTop"
+                />
+                <Select
+                    id="createRoleSelect"
+                    width="100%"
+                    items="{
+                        path: 'userRoleModel>/roles'
+                    }"
+                >
+                    <core:Item id="_IDGenItem"
+                        key="{userRoleModel>ID}"
+                        text="{userRoleModel>roleName}"
+                    />
+                </Select>
+            </VBox>
+        </content>
+        <beginButton>
+            <Button
+                id="userBtn"
+                text="{i18n>create}"
+                type="Emphasized"
+                press="onCreateUser"
+            />
+        </beginButton>
+        <endButton>
+            <Button id="_IDGenButton1"
+                text="{i18n>cancel}"
+                press="onCloseCreateUserDialog"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

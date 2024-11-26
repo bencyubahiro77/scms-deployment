@@ -1,0 +1,200 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "scmsfe",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.5",
+      "toolsId": "0cc2ade0-5be5-406b-acfa-48df4be3445f"
+    },
+    "dataSources": {
+      "userData": {
+				"uri": "/odata/v4/user/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0"
+				}
+			}
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.130.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "scmsfe.i18n.i18n"
+        }
+      },
+      "viewAllUsers": {
+				"type": "sap.ui.model.odata.v4.ODataModel",
+				"dataSource": "userData",
+				"preload": true,
+				"settings": {
+					"synchronizationMode": "None",
+					"groupId": "$direct",
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					},
+					"operationMode": "Server"
+				}
+			}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "scmsfe.view",
+        "async": true,
+        "viewPath": "scmsfe.view"
+      },
+			"routes": [
+				{
+					"pattern": "",
+					"name": "default",
+					"target": "login" 
+				},
+				{
+					"pattern": "login",
+					"name": "login",
+					"target": "login"
+				},
+				{
+					"pattern": "forgotPassword",
+					"name": "forgotPassword",
+					"target": "forgotPassword"
+				},
+				{ 
+					"pattern": "allUsers",
+					"name": "allUsers",
+					"target": "allUsers"
+				},
+				{ 
+					"pattern": "otp",
+					"name": "otp",
+					"target": "otp"
+				},
+				{ 
+					"pattern": "resetPassword",
+					"name": "resetPassword",
+					"target": "resetPassword"
+				},
+				{
+					"name": "errorPage",
+					"pattern": "errorPage",
+					"target": "errorPage"
+				},
+				{ 
+					"pattern": "user-profile",
+					"name": "userProfile",
+					"target": "userProfile"
+				},
+				{ 
+					"pattern": "dashboard",
+					"name": "dashboard",
+					"target": "dashboard"
+				},
+				{
+					"name": "underConstruction",
+					"pattern": "no-service",
+					"target": "underConstruction"
+				}
+
+			],
+			"targets": {
+				"login": {
+					"viewId": "login",
+					"viewName": "Login"
+				},
+				"forgotPassword":{
+					"viewId":"forgotPassword",
+					"viewName":"ForgotPassword"
+				},
+				"allUsers": {
+					"viewId": "allUsers",
+					"viewName": "AllUsers"
+				},
+				"otp": {
+					"viewId": "otp",
+					"viewName": "OTP"
+				},
+				"resetPassword": {
+					"viewId": "resetPassword",
+					"viewName": "ResetPassword"
+				},
+				"errorPage": {
+					"viewName": "errorPage",
+					"viewId": "ErrorPage"
+				},
+				"userProfile": {
+					"viewId": "userProfile",
+					"viewName": "UserProfile"
+				},
+				"dashboard": {
+					"viewId": "dashboard",
+					"viewName": "Dashboard"
+				},
+				"underConstruction": {
+					"viewId": "NoService",
+					"viewName": "NoService"
+				}
+
+			}
+    },
+    "rootView": {
+      "viewName": "scmsfe.view.App",
+      "type": "XML",
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "SCMS-FE"
+  }
+}

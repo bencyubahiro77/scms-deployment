@@ -1,0 +1,187 @@
+.btn .sapMBtnInner{
+    width: 330px !important;
+    height: 40px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.loginCard .sapMPanelContent{
+    padding: 1rem 2.5rem !important;
+}
+
+.loginCard{
+    height: 100vh;
+}
+
+.sapMInputBaseHeightMargin {
+    margin: 0
+}
+.createUser{
+    padding: 10px 20px 30px 20px !important;
+}
+.createUserDialog{
+    width: 400px !important;
+}
+
+.sapFShellBar .sapFShellBarHomeIcon {
+  height: 4rem !important;
+  max-height: 12rem !important
+}
+
+.sapFShellBar .sapFShellBarHomeIcon:hover{
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.sapFShellBar .sapFShellBarPrimaryTitle {
+    color: white !important;
+}
+.customShellBar {
+    background-color: #354A5F;
+}
+
+.sapFShellBar .sapFShellBarProfile:hover::before  {
+    background-color: transparent !important;
+}
+
+.popoverLink{
+    padding-left: 15px;
+    padding-top: 15px;
+    text-decoration: none !important;
+    font-size: 15px !important;
+    background-color: transparent !important;
+    color: rgba(41, 24, 24, 0.957) !important;
+}
+
+.popoverLink:hover{
+    text-decoration: none !important;
+}
+
+.popoverLink .sapUiIcon {
+    margin-right: 8px;
+    font-size: 15px !important 
+}
+
+.cartIcon .sapMBtnIcon {
+    color: white !important;
+}
+
+.otpContainer .sapMInputBaseContentWrapper { 
+    height: 50px !important;
+}
+
+.otpInput{
+    margin-right: 10px !important;
+}
+
+.otpContainer{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.redLink .sapMBtnInner{
+    background-color: red !important;
+    border-color: red !important;
+    background-image: none !important;
+    text-shadow: none !important;
+    color: whitesmoke !important;;
+}
+
+.redLink .sapMBtnIcon {
+    color: white !important
+}
+
+.userForm{
+    padding-left: 10%;
+}
+
+.sapFShellBar .sapFSHMegaMenu .sapMBtnTransparent{
+    color: white !important;
+}
+
+.sapFShellBar .sapFSHMegaMenu .sapMBtn:hover > .sapMBtnHoverable:not(.sapMBtnActive) {
+    background: none !important;
+    border: none !important;
+    color: white !important;
+}
+
+.sapFShellBar .sapFSHMegaMenu .sapMBtn:hover > .sapMBtnTransparent.sapMBtnHoverable:not(.sapMBtnActive):not(.sapMToggleBtnPressed) bdi{
+    color: white !important;
+}
+.sapFShellBar .sapFSHMegaMenu.sapMMenuBtn.sapMMenuBtnRegular .sapMBtnInner.sapMBtnTransparent:not(.sapMBtnActive)::after {
+    color: white !important;
+}
+
+.sapMBtnTransparent::before{
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.sapMBtnTransparent:hover{
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.ProfileCard .sapMPanelContent {
+    margin: 10px !important;
+    width: 45vw !important;
+}
+
+.userDetails{
+    justify-content: space-evenly;
+    padding: 40px !important;
+    border-bottom: 1px solid #E7F1FA ;
+    border-top: 1px solid #E7F1FA;
+}
+
+.ProfileCard .sapMLabel {
+    font-weight: bold;
+    text-align: left;
+}
+
+.formItem {
+    margin-bottom: 1rem;
+}
+
+.limitedColumns{
+    padding: 2%;
+}
+
+@media (min-width: 1500px) {
+    .limitedColumns {
+        width: 60% !important;
+        margin-left: 20% !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .ProfileCard .sapMPanelContent {
+        width: 95vw !important;
+    }
+    .userDetails{
+        display: block !important;
+    }
+}
+
+.errorPageLayout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+}
+
+.errorCodeText {
+    font-size: 2rem;
+    padding-left: 1rem; 
+}
+
+.customRedLink {
+    color: red !important; 
+}
+
+.customRedLink .sapMLnkText{
+    margin-left: 5px !important;
+}
+
+.customRedLink:hover {
+    text-decoration: none !important;
+}
