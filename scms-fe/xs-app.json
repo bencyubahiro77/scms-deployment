@@ -5,7 +5,7 @@
     {
       "source": "^/odata/(.*)$",
       "target": "/odata/$1",
-      "destination": "DIRECT_SERVICE_BINDING",
+      "destination": "SCMS-BE",
       "authenticationType": "xsuaa",
       "csrfProtection": false
     },
