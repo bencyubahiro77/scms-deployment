@@ -1,44 +1,29 @@
 <mvc:View
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
-    xmlns:l="sap.ui.layout"
     controllerName="scmsfe.controller.ErrorPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    height="100%"
 >
-    <l:VerticalLayout id="_IDGenVerticalLayout"
-        width="100%"
-        class="errorPageLayout"
+    <m:VBox
+        id="_IDGenPage"
+        class="sapUiContentPadding"
     >
-        <Panel id="_IDGenPanel2"
-            class="errorPanel sapUiContentPadding"
-            width="auto"
+        <m:IllustratedMessage
+            id="_IDGenIllustratedMessage1"
+            title="{i18n>504}"
+            description="{i18n>unableToFindMetaData}"
+            illustrationType="sapIllus-PageNotFound"
+            illustrationSize="Auto"
         >
-            <VBox id="_IDGenVBox18"
-                alignItems="Center"
-                justifyContent="Center"
-            >
-                <HBox id="_IDGenHBox6"
-                    width="100%"
-                    justifyContent="Start"
-                >
-                    <Text id="_IDGenText6"
-                        text="{i18n>504}"
-                        class="errorCodeText"
-                    />
-                </HBox>
-
-                <Image id="_IDGenImage3" src="images/Vector.svg" />
-
-                <Text id="_IDGenText7"
-                    text="{i18n>unableToFindMetaData}"
-                    class="sapUiSmallMarginTop"
-                />
-
-                <Button id="_IDGenButton4"
+            <m:additionalContent>
+                <m:Button
+                    id="_IDGenButton4"
                     text="{i18n>retry}"
-                    press="onRetryPress"
-                    class="sapUiSmallMarginTop"
+                    press=".onRetryPress"
                 />
-            </VBox>
-        </Panel>
-    </l:VerticalLayout>
+            </m:additionalContent>
+        </m:IllustratedMessage>
+    </m:VBox>
 </mvc:View>

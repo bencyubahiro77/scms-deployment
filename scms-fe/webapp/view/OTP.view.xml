@@ -9,6 +9,7 @@
         class="sapUiContentPadding loginCard"
         alignItems="Center"
         justifyContent="Center"
+        height="100%"
     >
         <Panel id="_IDGenPanel4">
             <VBox id="_IDGenVBox24">

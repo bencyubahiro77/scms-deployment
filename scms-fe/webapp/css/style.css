@@ -36,7 +36,7 @@
     color: white !important;
 }
 .customShellBar {
-    background-color: #354A5F;
+    background-color: #354A5F !important;
 }
 
 .sapFShellBar .sapFShellBarProfile:hover::before  {
