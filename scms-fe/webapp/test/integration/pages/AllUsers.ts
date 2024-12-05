@@ -3,7 +3,7 @@ import Press from "sap/ui/test/actions/Press";
 import EnterText from "sap/ui/test/actions/EnterText";
 import AggregationLengthEquals from "sap/ui/test/matchers/AggregationLengthEquals";
 
-const viewName = "scmsfe.view.AllUsers";
+const viewName = "scmsfe.view.userManagementViews/AllUsers";
 
 export default class AllUsersPage extends Opa5 {
 	iStartMyApp(): Promise<void> {

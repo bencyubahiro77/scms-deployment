@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="scmsfe.controller.OTP"
+    controllerName="scmsfe.controller.userManagementControllers.OTP"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"

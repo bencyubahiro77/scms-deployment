@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="scmsfe.controller.ErrorPage"
+    controllerName="scmsfe.controller.userManagementControllers.ErrorPage"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns:m="sap.m"

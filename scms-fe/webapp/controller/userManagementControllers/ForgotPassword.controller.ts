@@ -1,8 +1,8 @@
 import ODataModel from "sap/ui/model/odata/v4/ODataModel";
-import BaseController from "./BaseController";
+import BaseController from "../BaseController";
 import Input from "sap/m/Input";
 import ResourceBundle from "sap/base/i18n/ResourceBundle";
-import formatter from "../model/formatter";
+import formatter from "../../model/formatter";
 import MessageToast from "sap/m/MessageToast";
 import BusyIndicator from "sap/ui/core/BusyIndicator";
 

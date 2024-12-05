@@ -1,67 +1,71 @@
 {
-  "_version": "1.65.0",
-  "sap.app": {
-    "id": "scmsfe",
-    "type": "application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "0.0.1"
-    },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:basic",
-      "version": "1.15.5",
-      "toolsId": "0cc2ade0-5be5-406b-acfa-48df4be3445f"
-    },
-    "dataSources": {
-      "userData": {
+	"_version": "1.65.0",
+	"sap.app": {
+		"id": "scmsfe",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "@sap/generator-fiori:basic",
+			"version": "1.15.5",
+			"toolsId": "0cc2ade0-5be5-406b-acfa-48df4be3445f"
+		},
+		"dataSources": {
+			"userData": {
 				"uri": "/odata/v4/user/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "4.0"
 				}
 			}
-    }
-  },
-  "sap.ui": {
-    "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
-    "deviceTypes": {
-      "desktop": true,
-      "tablet": true,
-      "phone": true
-    }
-  },
-  "sap.ui5": {
-    "flexEnabled": true,
-    "dependencies": {
-      "minUI5Version": "1.130.2",
-      "libs": {
-        "sap.m": {},
-        "sap.ui.core": {}
-      }
-    },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
-    },
-    "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "settings": {
-          "bundleName": "scmsfe.i18n.i18n"
-        }
-      },
-      "viewAllUsers": {
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": true,
+		"dependencies": {
+			"minUI5Version": "1.130.2",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "scmsfe.i18n.i18n"
+				}
+			},
+			"mockData": {
+				"type": "sap.ui.model.json.JSONModel",
+        		"uri": "/MockData.json"
+			},
+			"viewAllUsers": {
 				"type": "sap.ui.model.odata.v4.ODataModel",
 				"dataSource": "userData",
 				"preload": true,
@@ -74,31 +78,31 @@
 					"operationMode": "Server"
 				}
 			}
-    },
-    "resources": {
-      "css": [
-        {
-          "uri": "css/style.css"
-        }
-      ]
-    },
-    "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "transition": "slide",
-        "type": "View",
-        "viewType": "XML",
-        "path": "scmsfe.view",
-        "async": true,
-        "viewPath": "scmsfe.view"
-      },
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"transition": "slide",
+				"type": "View",
+				"viewType": "XML",
+				"path": "scmsfe.view",
+				"async": true,
+				"viewPath": "scmsfe.view"
+			},
 			"routes": [
 				{
 					"pattern": "",
 					"name": "default",
-					"target": "login" 
+					"target": "login"
 				},
 				{
 					"pattern": "login",
@@ -110,17 +114,17 @@
 					"name": "forgotPassword",
 					"target": "forgotPassword"
 				},
-				{ 
+				{
 					"pattern": "allUsers",
 					"name": "allUsers",
 					"target": "allUsers"
 				},
-				{ 
+				{
 					"pattern": "otp",
 					"name": "otp",
 					"target": "otp"
 				},
-				{ 
+				{
 					"pattern": "resetPassword",
 					"name": "resetPassword",
 					"target": "resetPassword"
@@ -130,12 +134,12 @@
 					"pattern": "errorPage",
 					"target": "errorPage"
 				},
-				{ 
+				{
 					"pattern": "user-profile",
 					"name": "userProfile",
 					"target": "userProfile"
 				},
-				{ 
+				{
 					"pattern": "dashboard",
 					"name": "dashboard",
 					"target": "dashboard"
@@ -144,57 +148,82 @@
 					"name": "underConstruction",
 					"pattern": "no-service",
 					"target": "underConstruction"
+				},
+				{
+					"pattern": "inventory",
+					"name": "inventory",
+					"target": "inventory"
+				},
+				{
+					"name": "createProductInfo",
+					"pattern": "createProductInfo",
+					"target": "createProductInfo"
+				},
+				{
+					"name": "createProductPrice",
+					"pattern": "createProductPrice",
+					"target": "createProductPrice"
 				}
-
 			],
 			"targets": {
 				"login": {
 					"viewId": "login",
-					"viewName": "Login"
+					"viewName": "userManagementViews/Login"
 				},
-				"forgotPassword":{
-					"viewId":"forgotPassword",
-					"viewName":"ForgotPassword"
+				"forgotPassword": {
+					"viewId": "forgotPassword",
+					"viewName": "userManagementViews/ForgotPassword"
 				},
 				"allUsers": {
 					"viewId": "allUsers",
-					"viewName": "AllUsers"
+					"viewName": "userManagementViews/AllUsers"
 				},
 				"otp": {
 					"viewId": "otp",
-					"viewName": "OTP"
+					"viewName": "userManagementViews/OTP"
 				},
 				"resetPassword": {
 					"viewId": "resetPassword",
-					"viewName": "ResetPassword"
+					"viewName": "userManagementViews/ResetPassword"
 				},
 				"errorPage": {
-					"viewName": "errorPage",
+					"viewName": "userManagementViews/errorPage",
 					"viewId": "ErrorPage"
 				},
 				"userProfile": {
 					"viewId": "userProfile",
-					"viewName": "UserProfile"
+					"viewName": "userManagementViews/UserProfile"
 				},
 				"dashboard": {
 					"viewId": "dashboard",
-					"viewName": "Dashboard"
+					"viewName": "userManagementViews/Dashboard"
 				},
 				"underConstruction": {
 					"viewId": "NoService",
-					"viewName": "NoService"
+					"viewName": "userManagementViews/NoService"
+				},
+				"inventory": {
+					"viewId": "viewAllInventory",
+					"viewName": "inventoryViews/ViewAllInventory"
+				},
+				"createProductInfo": {
+					"viewId": "createProductInfo",
+					"viewName": "inventoryViews/CreateProductInfo"
+				},
+				"createProductPrice": {
+					"viewId": "createProductPrice",
+					"viewName": "inventoryViews/CreateProductPrice"
 				}
-
 			}
-    },
-    "rootView": {
-      "viewName": "scmsfe.view.App",
-      "type": "XML",
-      "id": "App"
-    }
-  },
-  "sap.cloud": {
-    "public": true,
-    "service": "SCMS-FE"
-  }
+		},
+		"rootView": {
+			"viewName": "scmsfe.view.App",
+			"type": "XML",
+			"id": "App"
+		}
+	},
+	"sap.cloud": {
+		"public": true,
+		"service": "SCMS-FE"
+	}
 }

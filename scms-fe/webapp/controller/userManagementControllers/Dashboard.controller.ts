@@ -1,5 +1,5 @@
 import ResourceBundle from "sap/base/i18n/ResourceBundle";
-import BaseController from "./BaseController";
+import BaseController from "../BaseController";
 
 export default class Dashboard extends BaseController {
 
@@ -17,6 +17,8 @@ public async onTilePress(oEvent: any): Promise<void> {
 
     if (title === resourceBundle.getText("userManagement")) {
         this.getRouter().navTo("allUsers");
+    } else if (title === resourceBundle.getText("inventoryManagement")) {
+        this.getRouter().navTo("inventory");
     } else {
         this.getRouter().navTo("underConstruction");
     }

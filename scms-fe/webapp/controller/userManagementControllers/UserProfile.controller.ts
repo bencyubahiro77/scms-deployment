@@ -1,5 +1,5 @@
 import Dialog from "sap/m/Dialog";
-import BaseController from "./BaseController";
+import BaseController from "../BaseController";
 import ODataModel from "sap/ui/model/odata/v4/ODataModel";
 import JSONModel from "sap/ui/model/json/JSONModel";
 import MessageToast from "sap/m/MessageToast";
@@ -30,7 +30,7 @@ export default class UserProfile extends BaseController {
 			});
 
 		} else {
-			console.error("Authorization token is missing in local storage.");
+			console.log("Authorization token is missing in local storage.");
 		}
 		this.fetchUserProfile()
 		
@@ -143,6 +143,7 @@ export default class UserProfile extends BaseController {
 			"profileModel"
 		) as JSONModel;
 		oProfileModel.setProperty("/busy", true);
+		BusyIndicator.show(0);
 
 		const oContextBinding = oDataModel.bindContext("/viewProfile(...)");
 
@@ -161,12 +162,14 @@ export default class UserProfile extends BaseController {
 					}
 				}
 				oProfileModel.setProperty("/busy", false);
+				BusyIndicator.hide();
 			})
 			.catch((error) => {
 				// Handle error
 				const statusMessage = error.error?.message;
 				statusMessage? MessageToast.show(statusMessage): this.getRouter().navTo("errorPage");
 				oProfileModel.setProperty("/busy", false);
+				BusyIndicator.hide();
 			});
 	}
 	public onNavBackUserDashboard (): void{

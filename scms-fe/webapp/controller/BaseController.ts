@@ -105,7 +105,7 @@ export default abstract class BaseController extends Controller {
 		const sRouteName = oRouteInfo ? oRouteInfo.name : "unknown";
 
 		// List of protected routes that require authentication
-		const protectedRoutes = ["allUsers"];
+		const protectedRoutes = ["allUsers","userProfile","dashboard","underConstruction","inventory","createProductInfo","createProductPrice"];
 		// Get the authentication token from localStorage
 		const token = localStorage.getItem("Auth-token");
 

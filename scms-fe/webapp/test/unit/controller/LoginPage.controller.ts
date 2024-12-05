@@ -1,5 +1,5 @@
 /*global QUnit*/
-import Controller from "scmsfe/controller/Login.controller";
+import Controller from "scmsfe/controller/userManagementControllers/Login.controller"
 
 QUnit.module("Login Controller");
 

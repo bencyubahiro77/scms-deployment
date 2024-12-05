@@ -160,6 +160,16 @@
     .userDetails{
         display: block !important;
     }
+
+    .CreateProduct{
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .ProfileCard .sapMPanelContent {
+        width: 75vw !important;
+    }
 }
 
 .errorPageLayout {
@@ -184,4 +194,76 @@
 
 .customRedLink:hover {
     text-decoration: none !important;
+}
+
+/*-----------------------------------inventory--------------------------------*/
+.CreateProduct{
+    margin-top: 30px;
+    margin-left: 70px;
+}
+.ProductSideBar{
+    width: 20% !important;
+    margin-right: 30px !important;
+    margin-top: 7.3rem !important; 
+    font-weight: bold !important;
+}
+.ProductInfo{
+    width: 50% !important;
+}
+.CreateProduct .sapMInputBaseContentWrapper { 
+    height: 40px !important;
+}
+
+.ProductInfo .titleLabel {
+    font-size: 1.5rem; 
+    margin-bottom: 2rem; 
+}
+
+.ProductInfo .inputLabel {
+    font-size: 1rem;
+}
+
+.ProductInfo .inputField {
+    margin-bottom: 2.5rem; 
+}
+.TextField{
+    margin-bottom: 2.5rem !important;
+}
+
+.TextField .sapMInputBaseContentWrapper{
+    height: 15vh !important;
+}
+
+.selectField {
+    height: 40px !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.ProductAction{
+    border-top: 1px solid #c5d1dc;
+    margin-top: 1rem;
+}
+
+.ObjectStatusDisabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 600px) {
+    .CreateProduct{
+        display: block;
+        margin-top: 0;
+        margin-left: 20px;
+    }
+    .ProductSideBar{
+        width: 100% !important;
+        margin-top: 3rem !important;
+    }
+    .ProductInfo{
+        width: 90% !important;
+    }
+    .ProductInfo .titleLabel {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
 }

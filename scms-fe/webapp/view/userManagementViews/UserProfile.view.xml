@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="scmsfe.controller.UserProfile"
+    controllerName="scmsfe.controller.userManagementControllers.UserProfile"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:m="sap.m"
@@ -46,7 +46,7 @@
                         press=".onUpdateProfileDialog"
                     />
                     <core:Fragment
-                        fragmentName="scmsfe.view.fragments.EditUserDialog"
+                        fragmentName="scmsfe.view.userManagementViews.fragments.EditUserDialog"
                         type="XML"
                     />
                 </VBox>

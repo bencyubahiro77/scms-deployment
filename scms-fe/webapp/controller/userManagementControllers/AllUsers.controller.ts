@@ -1,5 +1,5 @@
 import MessageBox from "sap/m/MessageBox";
-import BaseController from "./BaseController";
+import BaseController from "../BaseController";
 import ODataListBinding from "sap/ui/model/odata/v4/ODataListBinding";
 import Filter from "sap/ui/model/Filter";
 import FilterOperator from "sap/ui/model/FilterOperator";
@@ -13,8 +13,8 @@ import ResourceBundle from "sap/base/i18n/ResourceBundle";
 import Dialog from "sap/m/Dialog";
 import Sorter from "sap/ui/model/Sorter";
 import MessageToast from "sap/m/MessageToast";
-import formatter from "../model/formatter";
-import { UserData, SelectedItem } from "../model/types";
+import formatter from "../../model/formatter";
+import { UserData, SelectedItem } from "../../model/types";
 import Button from "sap/m/Button";
 import ODataModel from "sap/ui/model/odata/v4/ODataModel";
 import Select from "sap/m/Select";
@@ -27,9 +27,7 @@ import Event from "sap/ui/base/Event";
 import Control from "sap/ui/core/Control";
 import ViewSettingsDialog from "sap/m/ViewSettingsDialog";
 
-/**
- * @namespace scms.frontend.controller
- */
+
 export default class AllUsers extends BaseController {
 	public currentAction: string = "";
 	public userId: string = "";
@@ -83,7 +81,7 @@ export default class AllUsers extends BaseController {
 						// Add data to model
 						this.oViewModel.setProperty("/users", aUsers);
 					} else {
-						console.error("Unexpected response format");
+						console.log("Unexpected response format");
 					}
 				}
 				this.oViewModel.setProperty("/busy", false);
@@ -158,7 +156,7 @@ export default class AllUsers extends BaseController {
 					aFilters = aSelectedKeys.map(function (sSelectedKey: string) {
 						if (oFilterGroupItem.getName() === "roles") {
 							return new Filter({
-								path: "role",
+								path: "role/roleName",
 								operator: FilterOperator.EQ,
 								value1: sSelectedKey,
 							});

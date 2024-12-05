@@ -1,0 +1,204 @@
+<mvc:View
+    controllerName="scmsfe.controller.inventoryControllers.ViewAllInventory"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants"
+    core:require="{
+		formatter: 'scmsfe/model/formatter'
+	}"
+>
+    <f:DynamicPage id="_IDGenDynamicPage2">
+        <f:header>
+            <f:DynamicPageHeader id="_IDGenDynamicPageHeader1">
+                <f:content>
+                    <fb:FilterBar
+                        id="inventoryFilter"
+                        useToolbar="false"
+                        showFilterConfiguration="false"
+                        showClearOnFB="true"
+                        showGoOnFB="false"
+                        search=".onFilter"
+                        clear=".onClearFilter"
+                    >
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem id="_IDGenFilterGroupItem1"
+                                name="search"
+                                label="{i18n>search}"
+                                groupName="Group1"
+                                visibleInFilterBar="true"
+                            >
+                                <fb:control>
+                                    <Input
+                                        placeholder="{i18n>searchPlaceholder}"
+                                        class="searchBar"
+                                        id="inventorySearch"
+                                        liveChange="onSearch"
+                                    />
+                                </fb:control>
+                            </fb:FilterGroupItem>
+
+                            <fb:FilterGroupItem
+                                name="roles"
+                                id="categorySelect"
+                                label="{i18n>categories}"
+                                groupName="Group1"
+                                visibleInFilterBar="true"
+                            >
+                                <fb:control>
+                                    <MultiComboBox id="_IDGenMultiComboBox1"
+                                        name="{i18n>categories}"
+                                        items="{path: 'mockData>/categories'}"
+                                        selectionChange=".onFilter"
+                                    >
+                                        <core:Item id="_IDGenItem2"
+                                            key="{mockData>id}"
+                                            text="{mockData>name}"
+                                        />
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table
+                id="inventoryTable"
+                inset="false"
+                sticky="ColumnHeaders,HeaderToolbar"
+                class="table"
+                items="{mockData>/inventory}"
+                growing="true"
+                growingScrollToLoad="true"
+                growingThreshold="20"
+                busy="{viewModel>/busy}"
+                busyIndicatorDelay="{config>delay}"
+                itemPress=""
+                showSeparators="Inner"
+            >
+                <headerToolbar>
+                    <Toolbar id="_IDGenToolbar1" class="sapUiSmallMarginBottom">
+                        <Title id="_IDGenTitle2" text="{i18n>inventoryManagement}" />
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                        <Button
+                            id="createInventoryBtn"
+                            text="{i18n>create}"
+                            type="Emphasized"
+                            press="onNavigateCreateProduct"
+                        />
+                        <Button
+                            id="inventoryBatchDelete"
+                            text="{i18n>delete}"
+                            press=".onBatchDelete"
+                        />
+                        <Button
+                            icon="sap-icon://sort"
+                            id="inventorySort"
+                            press=".onOpenSortDialog"
+                        />
+                        <core:Fragment
+                            fragmentName="scmsfe.view.userManagementViews.fragments.UserSorter"
+                            type="XML"
+                        />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenColumn6"
+                        width="5%"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <CheckBox
+                            select=".onSelectAll"
+                            id="inventorySelectAll"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn7"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel32" text="{i18n>productName}" />
+                    </Column>
+                    <Column id="_IDGenColumn8"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel33" text="{i18n>category}" />
+                    </Column>
+                    <Column id="_IDGenColumn9"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel34" text="{i18n>supplier}" />
+                    </Column>
+                    <Column id="_IDGenColumn10"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel35" text="{i18n>quantity}" />
+                    </Column>
+                    <Column id="_IDGenColumn11"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Label id="_IDGenLabel36" text="{i18n>price}" />
+                    </Column>
+                    <Column id="_IDGenColumn12"
+                        width="10%"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    />
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1" vAlign="Middle">
+                        <cells>
+                            <CheckBox
+                                id="_IDGenCheckBox"
+                                select=".onSelectChange"
+                            />
+                            <Text id="_IDGenText6" text="{mockData>productName}" />
+                            <Text id="_IDGenText7" text="{mockData>category}" />
+                            <Text id="_IDGenText14" text="{mockData>supplier}" />
+
+                            <HBox id="_IDGenHBox6">
+                                <core:Icon id="_IDGenIcon"
+                                    color="Critical"
+                                    src="sap-icon://alert"
+                                    class="sapUiTinyMarginEnd"
+                                    tooltip="{i18n>warning}"
+                                    visible="{path: 'mockData>quantity', formatter: 'formatter.lowQuantity', targetType:'any'}"
+                                />
+                                <Text id="_IDGenText15"
+                                    text="{mockData>quantity}"
+                                />
+                            </HBox>
+
+                            <Text id="_IDGenText16"
+                                text="{path: 'mockData>pricePerItem', formatter: 'formatter.formatCurrency'}"
+                            />
+
+                            <HBox id="_IDGenHBox16">
+                                <Button
+                                    id="editInventory"
+                                    icon="sap-icon://edit"
+                                    class="sapUiTinyMarginEnd"
+                                    press=".onEditPress"
+                                />
+                                <Button id="_IDGenButton8"
+                                    icon="sap-icon://delete"
+                                    class="mainIcon"
+                                    press=".onDelete"
+                                />
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

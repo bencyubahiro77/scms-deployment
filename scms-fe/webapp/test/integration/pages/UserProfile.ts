@@ -2,7 +2,7 @@ import EnterText from "sap/ui/test/actions/EnterText";
 import Press from "sap/ui/test/actions/Press";
 import Opa5 from "sap/ui/test/Opa5";
 
-const viewName = "scmsfe.view.UserProfile";
+const viewName = "scmsfe.view.userManagementViews/UserProfile";
 
 export default class UserProfile extends Opa5 {
 	//profile actions
@@ -76,7 +76,7 @@ export default class UserProfile extends Opa5 {
 	//assertion
     iShouldSeeTheUserProfilePage() {
         return this.waitFor({
-            viewName: "scmsfe.view.UserProfile", 
+            viewName: "scmsfe.view.userManagementViews/UserProfile", 
             success: function() {
                 Opa5.assert.ok(true, "Navigated to the All Users page");
             },

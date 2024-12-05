@@ -1,0 +1,151 @@
+{
+	"categories": [
+		{ "id": 1, "name": "Electronics" },
+		{ "id": 2, "name": "Furniture" },
+		{ "id": 3, "name": "Clothing" },
+		{ "id": 4, "name": "Books" },
+		{ "id": 5, "name": "Food & Beverages" }
+	],
+	"inventory": [
+		{
+			"productName": "Laptop",
+			"supplier": "TechCorp",
+			"category": 1,
+			"quantity": 50,
+			"pricePerItem": 1200
+		},
+		{
+			"productName": "Smartphone",
+			"supplier": "Mobile World",
+			"category": 1,
+			"quantity": 200,
+			"pricePerItem": 800
+		},
+		{
+			"productName": "Headphones",
+			"supplier": "AudioKing",
+			"category": 1,
+			"quantity": 150,
+			"pricePerItem": 150
+		},
+		{
+			"productName": "Television",
+			"supplier": "HomeTech",
+			"category": 1,
+			"quantity": 30,
+			"pricePerItem": 1000
+		},
+		{
+			"productName": "Desk Chair",
+			"supplier": "FurniCo",
+			"category": 2,
+			"quantity": 80,
+			"pricePerItem": 300
+		},
+		{
+			"productName": "Dining Table",
+			"supplier": "FurniCo",
+			"category": 2,
+			"quantity": 20,
+			"pricePerItem": 700
+		},
+		{
+			"productName": "Sofa",
+			"supplier": "ComfortLiving",
+			"category": 2,
+			"quantity": 15,
+			"pricePerItem": 1200
+		},
+		{
+			"productName": "Bookshelf",
+			"supplier": "FurniCo",
+			"category": 2,
+			"quantity": 40,
+			"pricePerItem": 400
+		},
+		{
+			"productName": "Men's T-shirt",
+			"supplier": "ClothMart",
+			"category": 3,
+			"quantity": 500,
+			"pricePerItem": 20
+		},
+		{
+			"productName": "Women's Jacket",
+			"supplier": "FashionTrend",
+			"category": 3,
+			"quantity": 200,
+			"pricePerItem": 100
+		},
+		{
+			"productName": "Children's Shoes",
+			"supplier": "KidStyle",
+			"category": 3,
+			"quantity": 300,
+			"pricePerItem": 30
+		},
+		{
+			"productName": "Novel - Mystery",
+			"supplier": "BookHaven",
+			"category": 4,
+			"quantity": 120,
+			"pricePerItem": 15
+		},
+		{
+			"productName": "Textbook - Mathematics",
+			"supplier": "EduBooks",
+			"category": 4,
+			"quantity": 90,
+			"pricePerItem": 50
+		},
+		{
+			"productName": "Cookbook",
+			"supplier": "BookHaven",
+			"category": 4,
+			"quantity": 70,
+			"pricePerItem": 25
+		},
+		{
+			"productName": "Notebook",
+			"supplier": "Stationery World",
+			"category": 4,
+			"quantity": 400,
+			"pricePerItem": 5
+		},
+		{
+			"productName": "Apple Juice",
+			"supplier": "Fresh Drinks",
+			"category": 5,
+			"quantity": 200,
+			"pricePerItem": 3
+		},
+		{
+			"productName": "Cookies",
+			"supplier": "SnackTime",
+			"category": 5,
+			"quantity": 250,
+			"pricePerItem": 4
+		},
+		{
+			"productName": "Coffee Beans",
+			"supplier": "BrewMasters",
+			"category": 5,
+			"quantity": 100,
+			"pricePerItem": 15
+		},
+		{
+			"productName": "Chips",
+			"supplier": "SnackTime",
+			"category": 5,
+			"quantity": 300,
+			"pricePerItem": 2
+		},
+		{
+			"productName": "Mineral Water",
+			"supplier": "PureWater Co.",
+			"category": 5,
+			"quantity": 500,
+			"pricePerItem": 1
+		}
+	]
+}

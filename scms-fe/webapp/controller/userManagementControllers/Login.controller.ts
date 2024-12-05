@@ -1,15 +1,12 @@
 import Input from "sap/m/Input";
 import MessageToast from "sap/m/MessageToast";
-import BaseController from "./BaseController";
-import formatter from "../model/formatter";
+import BaseController from "../BaseController";
+import formatter from "../../model/formatter";
 import ResourceBundle from "sap/base/i18n/ResourceBundle";
-import { UserInfo } from "../model/types";
+import { UserInfo } from "../../model/types";
 import ODataModel from "sap/ui/model/odata/v4/ODataModel";
 import BusyIndicator from "sap/ui/core/BusyIndicator";
 
-/**
- * @namespace scms.frontend.controller
- */
 export default class Login extends BaseController {
 
 	public async onLoginPress(): Promise<void> {

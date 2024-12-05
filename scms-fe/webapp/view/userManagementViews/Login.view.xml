@@ -1,4 +1,4 @@
-<mvc:View controllerName="scmsfe.controller.Login"
+<mvc:View controllerName="scmsfe.controller.userManagementControllers.Login"
 	displayBlock="true"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"

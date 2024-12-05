@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="scmsfe.controller.AllUsers"
+    controllerName="scmsfe.controller.userManagementControllers.AllUsers"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
@@ -100,11 +100,11 @@
                             press=".onOpenSortDialog"
                         />
                         <core:Fragment
-                            fragmentName="scmsfe.view.fragments.UserSorter"
+                            fragmentName="scmsfe.view.userManagementViews.fragments.UserSorter"
                             type="XML"
                         />
                         <core:Fragment
-                            fragmentName="scmsfe.view.fragments.CreateUserDialog"
+                            fragmentName="scmsfe.view.userManagementViews.fragments.CreateUserDialog"
                             type="XML"
                         />
                     </Toolbar>
@@ -161,7 +161,7 @@
                             <Text id="_IDGenText1" text="{viewModel>firstName} {viewModel>lastName}" />
                             <Text id="_IDGenText2" text="{viewModel>email}" />
                             <Text id="_IDGenText3" text="{viewModel>phoneNumber}" />
-                            <Text id="_IDGenText4" text="{viewModel>role}" />
+                            <Text id="_IDGenText4" text="{viewModel>role/roleName}" />
                             <HBox id="_IDGenHBox3">
                                 <Button
                                     id="editIcon"

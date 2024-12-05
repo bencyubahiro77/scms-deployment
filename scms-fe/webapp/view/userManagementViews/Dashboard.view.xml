@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="scmsfe.controller.Dashboard"
+    controllerName="scmsfe.controller.userManagementControllers.Dashboard"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"

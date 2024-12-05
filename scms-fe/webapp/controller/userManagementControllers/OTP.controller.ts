@@ -1,5 +1,5 @@
 import Input from "sap/m/Input";
-import BaseController from "./BaseController";
+import BaseController from "../BaseController";
 import HBox from "sap/m/HBox";
 import MessageToast from "sap/m/MessageToast";
 import ODataModel from "sap/ui/model/odata/v4/ODataModel";

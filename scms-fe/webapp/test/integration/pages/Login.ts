@@ -2,7 +2,7 @@ import Opa5 from "sap/ui/test/Opa5";
 import Press from "sap/ui/test/actions/Press";
 import EnterText from "sap/ui/test/actions/EnterText";
 
-const viewName = "scmsfe.view.Login";
+const viewName = "scmsfe.view.userManagementViews/Login";
 
 export default class LoginPage extends Opa5 {
 	iStartMyApp(): Promise<void> {

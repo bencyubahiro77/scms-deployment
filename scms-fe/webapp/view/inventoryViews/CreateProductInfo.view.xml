@@ -1,0 +1,145 @@
+<mvc:View
+    controllerName="scmsfe.controller.inventoryControllers.CreateProduct"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+>
+    <Page
+        id="CreateProductInfo"
+        showNavButton="true"
+        navButtonPress=".onNavBackProductTable"
+        title="{i18n>createProduct}"
+    >
+        <HBox id="_IDGenHBox20"
+            class="CreateProduct"
+            width="100%"
+        >
+            <VBox id="_IDGenVBox28" class="ProductSideBar">
+                <ObjectStatus id="_IDGenObjectStatus2"
+                    icon="sap-icon://color-fill"
+                    text="{i18n>ProductInformation}"
+                    state="None"
+                    class="sapUiSmallMarginBottom"
+                />
+                <ObjectStatus id="_IDGenObjectStatus3"
+                    icon="sap-icon://color-fill"
+                    text="{i18n>PricingInformation}"
+                    state="None"
+                    class="ObjectStatusDisabled"
+                />
+            </VBox>
+            <VBox id="_IDGenVBox29" class="ProductInfo">
+                <Label id="_IDGenLabel40"
+                    text="{i18n>ProductInformation}"
+                    design="Bold"
+                    class="titleLabel"
+                />
+
+                <Label id="_IDGenLabel41"
+                    text="{i18n>ProductImage}"
+                    design="Bold"
+                    class="inputLabel"
+                />
+                <u:FileUploader
+                    id="fileUploader"
+                    class="inputField"
+                    width="100%"
+                    style="Emphasized"
+                    uploadUrl="upload/"
+                    fileType="txt,jpg"
+                    placeholder="{i18n>UploadImage}"
+                />
+
+                <Label id="_IDGenLabel42"
+                    text="{i18n>ProductName}"
+                    design="Bold"
+                    class="inputLabel"
+                />
+                <Input
+                    placeholder="{i18n>ProductName}"
+                    id="ProductName"
+                    type="Text"
+                    class="inputField"
+                />
+
+                <Label id="_IDGenLabel43"
+                    text="{i18n>Category}"
+                    design="Bold"
+                    class="inputLabel"
+                />
+                <Select
+                    id="CreateProductCategory"
+                    width="100%"
+                    class="selectField"
+                    items="{
+                     path: 'mockData>/categories'
+                    }"
+                >
+                    <core:Item id="_IDGenItem3"
+                        key="{mockData>id}"
+                        text="{mockData>name}"
+                    />
+                </Select>
+
+                <Label id="_IDGenLabel44"
+                    text="{i18n>Supplier}"
+                    design="Bold"
+                    class="inputLabel"
+                />
+                <Select
+                    id="CreateProductSupplier"
+                    width="100%"
+                    class="selectField"
+                    items="{
+                     path: 'mockData>/inventory'
+                    }"
+                >
+                    <core:Item id="_IDGenItem4"
+                        key="{mockData>supplier}"
+                        text="{mockData>supplier}"
+                    />
+                </Select>
+
+                <Label id="_IDGenLabel45"
+                    text="{i18n>Description}"
+                    design="Bold"
+                    class="inputLabel"
+                />
+                <TextArea
+                    placeholder="{i18n>Description}"
+                    id="Description"
+                    width="100%"
+                    class="TextField"
+                />
+
+                <Label id="_IDGenLabel46"
+                    text="{i18n>AvailableStock}"
+                    design="Bold"
+                    class="inputLabel"
+                />
+                <Input
+                    placeholder="{i18n>AvailableStock}"
+                    id="AvailableStock"
+                    type="Number"
+                    class="inputField"
+                />
+                <HBox id="_IDGenHBox21"
+                    justifyContent="End"
+                    class="ProductAction"
+                >
+                    <Button id="_IDGenButton11"
+                        text="{i18n>cancel}"
+                        class="sapUiSmallMarginEnd"
+                    />
+                    <Button id="_IDGenButton12"
+                        text="{i18n>submit}"
+                        type="Emphasized"
+                        press="onCreateProductPrice"
+                    />
+                </HBox>
+            </VBox>
+        </HBox>
+    </Page>
+</mvc:View>

@@ -3,6 +3,14 @@ export default {
 		return value?.toUpperCase();
 	},
 
+	formatCurrency: (value: string) => {
+		return `${value} USD`;
+	},
+
+	lowQuantity(value: number): boolean {
+		return value <= 90
+	  },
+
 	validateEmail(email: string): boolean {
 		const mailregex = /^\w+[\w-+.]*@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
 		// Return true if valid, false otherwise

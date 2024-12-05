@@ -24,7 +24,12 @@ export default {
 			lastName:'',
 			email: '',
 			phoneNumber: "",
-			role: '',
+			role: {
+				ID: "",
+				roleName: "",
+				description: "",
+				
+			},
 		}
 		const oModel = new JSONModel();
 		oModel.setData(oData)
@@ -40,7 +45,11 @@ export default {
 			lastName:'',
 			email: '',
 			phoneNumber: "",
-			role: '',
+			role: {
+				ID: "",
+				roleName: "",
+				description: "",
+			},
 			address: '',
 			dateOfBirth:'',
 			gender: '',
@@ -63,13 +72,13 @@ export default {
 		// New method to create grid items model
         const gridItems = [
             { title: i18nModel.getResourceBundle().getText("userManagement"), imageSrc: "images/people-connected.svg" },
-            { title: i18nModel.getResourceBundle().getText("goodsReceiptProcessing"), imageSrc: "images/people.svg" },
+            { title: i18nModel.getResourceBundle().getText("inventoryManagement"), imageSrc: "images/add-product.svg" },
+			{ title: i18nModel.getResourceBundle().getText("goodsReceiptProcessing"), imageSrc: "images/people.svg" },
             { title: i18nModel.getResourceBundle().getText("deliveryManagement"), imageSrc: "images/shipping-status.svg" },
             { title: i18nModel.getResourceBundle().getText("invoiceManagement"), imageSrc: "images/convert-3d-cube.svg" },
             { title: i18nModel.getResourceBundle().getText("warehouseOperationsManagement"), imageSrc: "images/factory.svg" },
             { title: i18nModel.getResourceBundle().getText("reportingAndAnalytics"), imageSrc: "images/factory.svg" },
             { title: i18nModel.getResourceBundle().getText("purchaseOrderManagement"), imageSrc: "images/factory.svg" },
-            { title: i18nModel.getResourceBundle().getText("inventoryManagement"), imageSrc: "images/add-product.svg" },
             { title: i18nModel.getResourceBundle().getText("paymentProcessing"), imageSrc: "images/people.svg" }
         ];
         const oModel = new JSONModel({ gridItems });

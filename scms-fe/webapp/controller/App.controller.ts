@@ -23,7 +23,7 @@ export default class App extends BaseController {
         if (!this._oPopover) {
             // Load the popover fragment
             Fragment.load({
-                name: "scmsfe.view.fragments.Popover", 
+                name: "scmsfe.view.userManagementViews.fragments.Popover", 
                 controller: this 
             }).then((oPopover: any) => {
                 this._oPopover = oPopover;
@@ -60,7 +60,7 @@ export default class App extends BaseController {
         // Get the route name, defaulting to 'unknown' if no route info is found
         const sRouteName = oRouteInfo ? oRouteInfo.name : "unknown";
         // Define routes where the fragment should be hidden
-        const aHiddenRoutes = ["login", "forgotPassword", "default","otp","resetPassword","errorPage"];
+        const aHiddenRoutes = ["login", "forgotPassword", "default","otp","resetPassword","errorPage",];
         // Get the fragment instance using the assigned ID
         const oNavBarFragmentContainer = this.byId("vboxContainer") as Control;
     

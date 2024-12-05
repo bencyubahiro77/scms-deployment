@@ -4,7 +4,11 @@ export interface UserData {
 	lastName: string;
 	email: string;
 	phoneNumber: string;
-	role: string;
+	role: {
+		ID: string;
+		description: string;
+		roleName: string;
+	};
 	address?: string;
 	gender?: string;
 	dateOfBirth?: string;

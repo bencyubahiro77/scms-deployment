@@ -1,0 +1,76 @@
+<mvc:View
+    controllerName="scmsfe.controller.inventoryControllers.CreateProduct"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+>
+    <Page
+        id="CreateProductPrice"
+        showNavButton="true"
+        navButtonPress=".onNavigateCreateProduct"
+        title="{i18n>createProduct}"
+    >
+        <HBox id="_IDGenHBox18"
+            class="CreateProduct"
+            width="100%"
+        >
+            <VBox id="_IDGenVBox18" class="ProductSideBar">
+                <ObjectStatus id="_IDGenObjectStatus"
+                    icon="sap-icon://accept"
+                    text="{i18n>ProductInformation}"
+                    state="None"
+                    class="sapUiSmallMarginBottom"
+                />
+                <ObjectStatus id="_IDGenObjectStatus1"
+                    icon="sap-icon://color-fill"
+                    text="{i18n>PricingInformation}"
+                    state="None"
+                />
+            </VBox>
+
+            <VBox id="_IDGenVBox19" class="ProductInfo">
+                <Label id="_IDGenLabel37"
+                    text="{i18n>PricingInformation}"
+                    design="Bold"
+                    class="titleLabel"
+                />
+                <Label id="_IDGenLabel38"
+                    text="{i18n>Description}"
+                    design="Bold"
+                    class="inputLabel"
+                />
+                <Input id="_IDGenInput4"
+                    placeholder="{i18n>Description}"
+                    type="Text"
+                    class="inputField"
+                />
+
+                <Label id="_IDGenLabel39"
+                    text="{i18n>AvailableStock}"
+                    design="Bold"
+                    class="inputLabel"
+                />
+                <Input id="_IDGenInput5"
+                    placeholder="{i18n>AvailableStock}"
+                    type="Number"
+                    class="inputField"
+                />
+                <HBox id="_IDGenHBox19"
+                    justifyContent="End"
+                    class="ProductAction"
+                >
+                    <Button id="_IDGenButton9"
+                        text="{i18n>cancel}"
+                        class="sapUiSmallMarginEnd"
+                    />
+                    <Button id="_IDGenButton10"
+                        text="{i18n>create}"
+                        type="Emphasized"
+                    />
+                </HBox>
+            </VBox>
+        </HBox>
+    </Page>
+</mvc:View>
