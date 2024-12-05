@@ -7,26 +7,28 @@
       "target": "/odata/$1",
       "destination": "SCMS-BE",
       "authenticationType": "none",
-      "csrfProtection": false,
-      "cacheControl": "no-cache, no-store, must-revalidate"
+      "csrfProtection": false
     },
     {
       "source": "^/resources/(.*)$",
       "target": "/resources/$1",
       "authenticationType": "none",
-      "destination": "ui5"
+      "destination": "ui5",
+      "cacheControl": "no-cache, no-store, must-revalidate"
     },
     {
       "source": "^/test-resources/(.*)$",
       "target": "/test-resources/$1",
       "authenticationType": "none",
-      "destination": "ui5"
+      "destination": "ui5",
+      "cacheControl": "no-cache, no-store, must-revalidate"
     },
     {
       "source": "^(.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",
-      "authenticationType": "none"
+      "authenticationType": "none",
+      "cacheControl": "no-cache, no-store, must-revalidate"
     }
   ]
 }
